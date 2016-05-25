@@ -89,7 +89,10 @@ for c in data:
      if c[0]=='^':
 	addwords([c[1:len(c)]],tag)
      else
-	addwoeds(data.split(' +',tag))
+        tmp = data.split(' ')
+        while '' in tmp:
+            tmp.remove('')
+	addwoeds(tmp,tag)
 
 print "You are adding " + str(len(data))+'to ' + tag +' list!'
 addwords(data,tag)
