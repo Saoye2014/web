@@ -81,10 +81,15 @@ fPath = global_var.WORD_PATH+tag+'.txt'
 
 #split whiteback
 f = open(fPath,'r')
-data=re.sub(' +|\\n+',',',f.read())
-data = data.split(',')
-while '' in data:
-     data.remove('')
+data=re.sub('\n+','\n',f.read())
+data = data.split('\n')
+for c in data:
+     if c == ''
+	continue
+     if c[0]=='^':
+	addwords([c[1:len(c)]],tag)
+     else
+	addwoeds(data.split(' +',tag))
 
 print "You are adding " + str(len(data))+'to ' + tag +' list!'
 addwords(data,tag)
