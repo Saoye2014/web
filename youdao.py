@@ -83,16 +83,16 @@ fPath = global_var.WORD_PATH+tag+'.txt'
 f = open(fPath,'r')
 data=re.sub('\n+','\n',f.read())
 data = data.split('\n')
-for c in data:
-     if c == ''
+for row in data:
+     if row == '':
 	continue
-     if c[0]=='^':
-	addwords([c[1:len(c)]],tag)
-     else
-        tmp = data.split(' ')
+     if row[0]=='^':
+	addwords([row[1:len(row)]],tag)
+     else:
+        tmp = row.split(' ')
         while '' in tmp:
             tmp.remove('')
-	addwoeds(tmp,tag)
+	addwords(tmp,tag)
 
 print "You are adding " + str(len(data))+'to ' + tag +' list!'
 addwords(data,tag)
