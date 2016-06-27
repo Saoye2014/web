@@ -78,8 +78,26 @@ fPath = global_var.WORD_PATH+tag+'.txt'
 
 #addword('d','1','1','day1')
 #addword('dad','1','1','')
-
+####################################
+f = open(fPath,'r')
+data=re.sub('\n+','\n',f.read())
+data = data.split('\n')
+for row in data:
+    if row == 'continue':
+        continue
+    if row[0]=='#':
+        tag = row[1:len(row)]
+        continue
+    if row[0]=='^':
+	addwords([row[1:len(row)]],tag)
+    else:
+        tmp = row.split(' ')
+        while '' in tmp:
+            tmp.remove('')
+	addwords(tmp,tag)
+####################################
 #split whiteback
+'''
 f = open(fPath,'r')
 data=re.sub('\n+','\n',f.read())
 data = data.split('\n')
@@ -95,6 +113,7 @@ for row in data:
 	addwords(tmp,tag)
 
 print "You are adding " + str(len(data))+'to ' + tag +' list!'
-addwords(data,tag)
+'''
+
 
  
